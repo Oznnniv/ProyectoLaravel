@@ -1,5 +1,12 @@
 @extends('plantillas.plantilla_nadie')
 @section('content')
+<div class="container text-center"><h3>EMAILS Y CONTRASEÑAS PARA ACCEDER: </h3></div>
+<div class="container text-center"><h4>Cobrador</h4></div>
+<div class="container text-center"><h5>1.- Email: cobrador1@cobrador.com - Contraseña: pasopaso </h5></div>
+<div class="container text-center"><h5>2.- Email: cobrador1@cobrador.com - Contraseña: pasopaso </h5></div>
+<div class="container text-center"><h4>Suscriptores</h4></div>
+<div class="container text-center"><h5>3.- Email: suscriptor1@suscriptor.com - Contraseña: pasopaso </h5></div>
+<div class="container text-center"><h5>4.- Email: suscriptor2@suscriptor.com - Contraseña: pasopaso </h5></div>
 <div class="container text-center"><h1>Lista de servicios</h1></div>
 <div class="container card text-center">
   <div class="card-body">
