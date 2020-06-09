@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 08-06-2020 a las 21:04:32
+-- Tiempo de generación: 09-06-2020 a las 19:20:02
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 7.2.19
 
@@ -54,12 +54,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2020_06_06_182840_create_servicios_table', 1),
-(5, '2020_06_06_185555_create_pagos_table', 1),
-(6, '2020_06_06_200936_create_suscripciones_table', 1);
+(7, '2014_10_12_000000_create_users_table', 1),
+(8, '2014_10_12_100000_create_password_resets_table', 1),
+(9, '2019_08_19_000000_create_failed_jobs_table', 1),
+(10, '2020_06_06_182840_create_servicios_table', 1),
+(11, '2020_06_06_185555_create_pagos_table', 1),
+(12, '2020_06_06_200936_create_suscripciones_table', 1);
 
 -- --------------------------------------------------------
 
@@ -81,9 +81,10 @@ CREATE TABLE `pagos` (
 --
 
 INSERT INTO `pagos` (`id`, `concepto`, `desc`, `monto`, `fecha_pago`, `suscriptor_id`) VALUES
-(1, 'con', 'desc', '12.00', '2020-06-08', 1),
-(2, '2', '2', '2.00', '2018-02-02', 2),
-(3, 'TRE', 'TRE', '3.00', '2019-09-17', 3);
+(1, 'Concepto1', 'Descripción de concepto 1', '1.00', '2020-06-01', 3),
+(2, 'Concepto2', 'Descripción de concepto 2', '2.00', '2020-06-10', 4),
+(3, 'Concepto3', 'Descripción de concepto 3', '1.00', '2020-06-03', 3),
+(4, 'Concepto4', 'Descripción de concepto 4', '1.00', '2020-04-29', 4);
 
 -- --------------------------------------------------------
 
@@ -120,13 +121,9 @@ CREATE TABLE `servicios` (
 --
 
 INSERT INTO `servicios` (`id`, `nombre`, `desc`, `precio`, `recargo`, `img1`, `img2`, `img3`, `deleted_at`) VALUES
-(1, 'El libro', '1', '1.00', '1.00', '1591642614Sin título.png', '1591642614Sin título.png', '1591642614Sin título.png', '2020-06-09 01:28:39'),
-(2, 'El libro', '1', '1.00', '1.00', '1591643730luna-colores-nuevo.png', '1591643730luna-colores-nuevo.png', '1591643730luna-colores-nuevo.png', '2020-06-09 00:21:31'),
-(3, 'NUEVO', 'DESCRIPCIÓN', '99.00', '99.00', '1591647883luna-colores-nuevo.png', '1591647883Sin título.png', '1591647883luna-colores-nuevo.png', '2020-06-09 01:28:39'),
-(4, 'El libro - Versión nueva', 'Descripción nueva', '11111.00', '111111.00', '1591648049Captura de pantalla (212).png', '1591648049Captura de pantalla (212).png', '1591648049Captura de pantalla (212).png', '2020-06-09 01:28:37'),
-(5, 'SERVICIO1', 'DESCRIPCIÓN', '1.00', '1.00', '1591648674Captura de pantalla (212).png', '1591648674Captura de pantalla (212).png', '1591648674Captura de pantalla (212).png', NULL),
-(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'El libro', '123212', '31.00', '111.00', '1591648702Captura de pantalla (262).png', '1591648702Captura de pantalla (262).png', '1591648702Captura de pantalla (262).png', NULL);
+(2, 'Servicio1', 'Descripción del servicio 1', '1.00', '1.00', '15916642150001_7.jpg', '1591664215Definición-del-producto-y-servicio.png', '1591664215knowhow-kundenservice-via-messenger-unternehmen.png', NULL),
+(3, 'Servicio2', 'Descripción del servicio 2', '2.00', '2.00', '1591664241miras-tu-negocio-ojos-cliente-calidad-servicio-tu-negocio.jpg', '1591664241servicio-al-cliente-3-e1534443892389.jpg', '1591664241Servicio-al-cliente-categorías-620x330.png', NULL),
+(8, 'Servicio3', 'Descripción del servicio 3', '3.00', '3.00', '15917241890001_7.jpg', '15917241890001_7.jpg', '15917241890001_7.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -146,10 +143,9 @@ CREATE TABLE `suscripciones` (
 --
 
 INSERT INTO `suscripciones` (`id`, `fecha_insc`, `servicio_id`, `suscriptor_id`) VALUES
-(2, '2020-06-02', 1, 2),
-(3, '2020-06-02', 4, 1),
-(5, '2020-06-02', 5, 5),
-(6, '2020-06-16', 7, 4);
+(1, '2018-12-01', 2, 3),
+(2, '2019-08-08', 2, 3),
+(3, '2020-06-01', 3, 4);
 
 -- --------------------------------------------------------
 
@@ -175,11 +171,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `rfc`, `dir`, `email`, `password`, `remember_token`, `rol`, `created_at`, `updated_at`) VALUES
-(1, 'Nombre', 'RFC', 'Dir', 'dir@dir.com', '$2y$10$iPE4ahvbI1rzbS.SsD6CxO5mYS6ep3Cszg3GfkZw71Ppy3f5uZDpi', NULL, 'suscriptor', '2020-06-08 19:02:00', '2020-06-08 19:02:00'),
-(2, 'a', 'a', 'a', 'a', 'pasopaso', NULL, 'suscriptor', '2020-06-08 05:00:00', '2020-06-08 05:00:00'),
-(3, 'Tre', 'Tre', 'Tre', 'tre', '$2y$10$iPE4ahvbI1rzbS.SsD6CxO5mYS6ep3Cszg3GfkZw71Ppy3f5uZDpi', NULL, 'suscriptor', '2020-06-08 19:02:00', '2020-06-08 19:02:00'),
-(4, 'Nombre', 'RFC', 'Dir', 'dirrrr@dirrr.com', '$2y$10$iPE4ahvbI1rzbS.SsD6CxO5mYS6ep3Cszg3GfkZw71Ppy3f5uZDpi', NULL, 'cobrador', '2020-06-08 19:02:00', '2020-06-08 19:02:00'),
-(5, 'Nombre', 'RFC', 'Dir', 'dirrrrr@dirrrr.com', '$2y$10$iPE4ahvbI1rzbS.SsD6CxO5mYS6ep3Cszg3GfkZw71Ppy3f5uZDpi', NULL, 'cobrador', '2020-06-08 19:02:00', '2020-06-08 19:02:00');
+(1, 'Cobrador1', '', '', 'cobrador1@cobrador.com', '$2y$10$KBqcIZcPyDkUYzI8NStC6OvQ83cim2Ti.kFvE.BQqxoKxEpAyyuVO', NULL, 'cobrador', '2020-06-09 05:18:09', '2020-06-09 05:18:09'),
+(2, 'Cobrador2', '', '', 'cobrador2@cobrador.com', '$2y$10$MDn6sFywrbodi0fSkazaueh0EHs/Wx83SbVZOkcK75dUbIvlQJbd6', NULL, 'cobrador', '2020-06-09 05:31:38', '2020-06-09 05:31:38'),
+(3, 'Suscriptor1', 'RFCSUSCRIPTOR1', 'Dirección #1', 'suscriptor1@suscriptor.com', '$2y$10$IMRFyw4cS89N8mkW2LOUxeoYwBWfsNdETU9o.VZEHc1pr1eJj.K8C', NULL, 'suscriptor', '2020-06-09 05:40:28', '2020-06-09 05:40:28'),
+(4, 'Suscriptor2', 'RFCSUSCRIPTOR2', 'Dirección #2', 'suscriptor2@suscriptor.com', '$2y$10$Qd9fpwVRfegz00MmocXBq.HppqDKx0M6qiEWsn24kTd3XtixHZlBS', NULL, 'suscriptor', '2020-06-09 05:42:30', '2020-06-09 05:42:30');
 
 --
 -- Índices para tablas volcadas
@@ -245,31 +240,31 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `suscripciones`
 --
 ALTER TABLE `suscripciones`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

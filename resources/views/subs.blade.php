@@ -1,21 +1,18 @@
 @extends('plantillas.plantilla_cobrador')
 @section('content')
 <div class="pull-left"><h3>Lista de suscriptores</h3></div>
-<input type="text" id="myInput" onkeyup="Buscar()" placeholder="Buscar por fecha...">
+<input type="text" id="myInput" onkeyup="Buscar()" placeholder="Buscar por nombre...">
 <table id="mytable" class="table table-bordred table-striped">
   <thead>
     <th>Nombre</th>
-    <th>Fecha de suscripción</th>
-    <th>Servicios</th>
     <th>Opciones</th>
   </thead>
   <tbody>
     @forelse($users as $user)
       <tr>
         <td>{{$user->name}}</td>
-        <td></td>
-        <td></td>
         <td>
+          <a href="/suscriptores/{{$user->id}}/message" class="btn btn-primary" style="display: inline">Mensaje</a>
           <a href="/suscriptores/{{$user->id}}/detail" class="btn btn-primary" style="display: inline">Detalles</a>
           <a href="/suscriptores/{{$user->id}}/historial" class="btn btn-primary" style="display: inline">Historial</a></td>
       </tr>

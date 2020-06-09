@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -25,10 +27,21 @@ class LoginController extends Controller
      * Where to redirect users after login.
      *
      * @var string
-
-    protected $redirectTo = RouteServiceProvider::HOME;  <---- Esto estaba antes
-    */
-
+     */
+    //protected $redirectTo = RouteServiceProvider::HOME;
+    protected function authenticated(Request $request)
+    {
+        $rol = $request->user()->rol;
+        if($rol == "cobrador")
+        {
+            return redirect("/servicio");
+        }
+        if ($rol == "suscriptor")
+        {
+            return redirect('/servicioss');
+        }
+        return redirect('/NADAAAAAAAAAAAA');
+    }
     /**
      * Create a new controller instance.
      *
@@ -37,25 +50,5 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-    }
-
-    public function redirectPath()
-    {
-
-        if(auth()->user()->name == 'Cobrador'){
-            return '/bienvenidos';
-        }
-        elseif(auth()->user()->name == 'Medio'){
-            return '/temporal2';
-        }
-        elseif(auth()->user()->name == 'Alto'){
-            return '/temporal3';
-        }
-
-        /*elseif (auth()->user()->name == 'Comprador') {
-            return '/productos';
-        }*/
-
-        return '/bienvenido';
     }
 }

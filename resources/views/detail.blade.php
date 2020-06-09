@@ -19,6 +19,12 @@
       <label>RFC:</label>
       <input type="text" disabled="disabled" name="recargo" id="recargo" class="form-control input-sm" value="{{$users->rfc}}">
     </div>
+    <div class="form-group">
+      <label>Fecha de inscripción:</label>
+      <input type="text" disabled="disabled" name="fecha_insc" id="fecha_insc" class="form-control input-sm" value="{{$fecha_inscrip}}">
+      <label>ID del servicio:</label>
+      <input type="text" disabled="disabled" name="servicio_id" id="servicio_id" class="form-control input-sm" value="{{$servicio_name}}">
+    </div>
     <div class="btn-group">
     <a href="/suscriptores" class="btn btn-secondary" >Atrás</a>
   </div>

@@ -16,6 +16,7 @@ class ServicioController extends Controller
     {
         $servicios = Servicio::orderBy('id', 'DESC')->paginate(3);
         return view('index', compact('servicios'));
+
     }
 
     /**
@@ -175,9 +176,4 @@ class ServicioController extends Controller
         /*Servicio::find($id)->delete();
         return redirect('/servicio')->with('success','El servicio ha sido borrado');*/
     }
-    public function detalle()
-    {
-        return view('details');
-    }
-
 }

@@ -10,7 +10,7 @@
   <table class="table table-bordered" id="tableMonedas">
     <thead>
       <tr>
-        <th class="text-center">Servicio</th>
+        <th class="text-center">ID</th>
         <th class="text-center">Fecha</th>
         <th class="text-center">Concepto</th>
         <th class="text-center">Cargos</th>

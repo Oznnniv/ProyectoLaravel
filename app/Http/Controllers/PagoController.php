@@ -71,13 +71,18 @@ class PagoController extends Controller
 
     public function detailss($id)
     {
-        //$users = User::find($id);
-        //$sql = 'SELECT * FROM pagos';
-        //$sql = 'SELECT * FROM users WHERE suscriptor_id = ';
-        //$pagos = DB::select($sql);
-        //$users = DB::table('users')->get();
         $suscriptor_id = DB::table('pagos')->where('suscriptor_id', '=', $id)->get();
-        return view('historial', compact('suscriptor_id'));
+
+        $pago_hecho = DB::table('pagos')
+        ->join('users', 'users.id', '=', 'pagos.suscriptor_id')
+        ->where('pagos.suscriptor_id', $id)
+        ->get();
+        if($pago_hecho != NULL || $pago_hecho != ''){
+            $pago_hecho = 'HECHO';
+        }
+        echo $pago_hecho;
+
+        return view('historial')->with(compact('suscriptor_id', 'pago_hecho'));
     }
 
     /*public function detailss()

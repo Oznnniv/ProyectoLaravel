@@ -21,15 +21,12 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/bienvenido') }}">
-                    {{ __('F') }}
-                </a>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                       <a class="nav-link" href="/servicioss">Servicios</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/1/estado">Estado de cuenta</a>
+                      <a class="nav-link" href="/{{auth()->user()->id}}/estado">Estado de cuenta</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/{{auth()->user()->id}}/historial">Historial de pago</a>

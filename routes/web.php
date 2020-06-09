@@ -43,6 +43,7 @@ Route::get('/servicios', 'ServicioController@indexx');
 Route::get('/bienvenido', 'HomeController@index')->name('Inicio')->middleware('auth');
 Route::get('/suscriptores', 'UserController@index')->middleware('auth');
 Route::get('/suscriptores/{id}/detail', 'UserController@show')->middleware('auth');
+Route::get('/suscriptores/{id}/message', 'UserController@message')->middleware('auth');
 Route::get('/suscriptores/{id}/historial', 'PagoController@detailss')->middleware('auth');
 
 

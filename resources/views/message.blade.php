@@ -74,19 +74,18 @@
       <ul>
         <li>
           <label for="name">Nombre:</label>
-          <input type="text" id="name" name="user_name" />
+          <input type="text" disabled="disabled" id="name" name="name" value="{{$users->name}}" />
         </li>
         <li>
           <label for="mail">E-mail:</label>
-          <input type="email" id="mail" name="user_mail" />
+          <input type="text" disabled="disabled" id="email" name="email" value="{{$users->email}}" />
         </li>
         <li>
           <label for="msg">Mensaje:</label>
           <textarea id="msg" name="user_message"></textarea>
         </li>
-        <li class="button">
-          <button type="submit">Enviar mensaje</button>
-        </li>
+          <a href="/suscriptores" class="btn btn-primary">Enviar mensaje</a>
+          <a href="/suscriptores" class="btn btn-secondary">Atrás</a>
       </ul>
     </form>
   </body>
